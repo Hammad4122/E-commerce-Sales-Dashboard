@@ -1,6 +1,8 @@
+import os
 import pandas as pd
-import streamlit as st
 
 def read_csv():
-    df = pd.read_csv("Dataset\Sales_Data.csv",encoding="ISO-8859-1")
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    csv_path = os.path.join(base_dir, "Dataset", "Sales_Data.csv")
+    df = pd.read_csv(csv_path)
     return df
