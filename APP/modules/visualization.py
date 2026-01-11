@@ -1,30 +1,32 @@
 #-----Importing Modules-----
 import pandas as pd
 import streamlit as st
-from modules.read_csv import read_csv
+from modules.read_csv import read_csv  # Custom function to read CSV data
 
 #-----Collecting Data-----
-df = read_csv()
+df = read_csv()  # Load the dataset into a DataFrame
+
 #-----Analysing Data for Visualization-----
 
 #-----Grouping Year by Revenue.sum()-----
-grouped_Year_by_Revenue = df.groupby("Year")["Revenue"].sum().reset_index("Year")
+grouped_Year_by_Revenue = df.groupby("Year")["Revenue"].sum().reset_index("Year")  # Total revenue per year
 
 #-----Top 10 countries by revenue-----
-top10_countries_by_revenue = df.groupby("Country")["Revenue"].sum().reset_index().nlargest(10,"Revenue")
-top10_countries_by_sum= df.groupby("Country")["Revenue"].sum().reset_index().nlargest(5,"Revenue")
+top10_countries_by_revenue = df.groupby("Country")["Revenue"].sum().reset_index().nlargest(10,"Revenue")  # Top 10 countries by revenue
+top10_countries_by_sum= df.groupby("Country")["Revenue"].sum().reset_index().nlargest(5,"Revenue")  # Top 5 countries by revenue (for other uses)
 
 #-----Customer Spending Comparison-----
-top3_customers = df.groupby("CustomerID")["Revenue"].sum().reset_index().nlargest(3,"Revenue")
+top3_customers = df.groupby("CustomerID")["Revenue"].sum().reset_index().nlargest(3,"Revenue")  # Top 3 customers by total spend
 
 #-----Top 10 Products-----
-top10_products_by_revenue = df.groupby("Description")["Revenue"].sum().reset_index().nlargest(10,"Revenue")
+top10_products_by_revenue = df.groupby("Description")["Revenue"].sum().reset_index().nlargest(10,"Revenue")  # Top 10 products by revenue
 
+#-----Function to plot all visualizations-----
 def plot():
-    #-----Total Revenue in 2010 and 2011 and Sales in each country with st.column(2)-----
-    col1,col2 = st.columns(2)
+    #-----Total Revenue in 2010 and 2011 and Sales in each country with st.columns(2)-----
+    col1,col2 = st.columns(2)  # Create two columns for side-by-side charts
     with col1:
-        st.text("Revenue Generated in 2010 and 2011")
+        st.text("Revenue Generated in 2010 and 2011")  # Title for first column chart
         st.bar_chart(
             data=grouped_Year_by_Revenue,
             x = "Year",
@@ -37,7 +39,7 @@ def plot():
             height=155
             )
     with col2:
-        st.text("Top 10 countries by revenue")
+        st.text("Top 10 countries by revenue")  # Title for second column chart
         st.bar_chart(
             data = top10_countries_by_revenue,
             x = "Country",
@@ -47,8 +49,9 @@ def plot():
             use_container_width=True,
             color = "#6555fae9"
         )
+    #-----Top 3 Customers-----
     with st.container(key = "TOP3CUSTOMERS"):
-        st.write("Top 3 Customers")
+        st.write("Top 3 Customers")  # Section title
         st.bar_chart(
             data=top3_customers,
             x = "CustomerID",
@@ -60,8 +63,9 @@ def plot():
             height=165
         )
     
+    #-----Top 10 Best Selling Products-----
     with st.container(key = "top10BestSellingProducts"):
-        st.header("Top 10 Best Selling Products")
+        st.header("Top 10 Best Selling Products")  # Section title
         st.bar_chart(
             data = top10_products_by_revenue,
             x = "Description",
@@ -73,7 +77,8 @@ def plot():
             height = 500
         )
 
-    select_year_col1,select_month_col2 = st.columns(2)
+    #-----Year and Month Selection Filters-----
+    select_year_col1,select_month_col2 = st.columns(2)  # Create two columns for year and month selection
     select_year = select_year_col1.selectbox(
         "Select Year",
         ["2010", "2011"],
@@ -83,16 +88,18 @@ def plot():
     )
 
     if select_year:
-        select_year = int(select_year)
+        select_year = int(select_year)  # Convert selected year to integer
 
+        #-----Define months based on selected year-----
         if select_year == 2010:
-            months = ["December"]
+            months = ["December"]  # Only December data for 2010
         elif select_year == 2011:
             months = [
                 "January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
             ]
 
+        #-----Month selection box-----
         select_month = select_month_col2.selectbox(
             "Select Month",
             months,
@@ -101,22 +108,25 @@ def plot():
         )
 
         if select_month:
+            #-----Filter dataset based on selected year and month-----
             filtered_df = df[
                 (df["Year"] == select_year) &
                 (df["Months"] == select_month)
             ]
 
+            #-----Group revenue by each day in the selected month-----
             grouped_monthly_revenue = (
                 filtered_df
                 .groupby(filtered_df["InvoiceDate"])["Revenue"]
                 .sum()
                 .reset_index()
             )
-            grouped_monthly_revenue.columns = ["Day", "Revenue"]
+            grouped_monthly_revenue.columns = ["Day", "Revenue"]  # Rename columns for clarity
 
+            #-----Monthly Sales Line Chart-----
             with st.container(key = "Monthly_Sales_Graph"):
-                st.header("Monthly Sales")
-                st.write(f"Sales in {select_month}: {filtered_df['Revenue'].sum():.1f}$")
+                st.header("Monthly Sales")  # Section title
+                st.write(f"Sales in {select_month}: {filtered_df['Revenue'].sum():.1f}$")  # Show total revenue for month
                 st.line_chart(
                     grouped_monthly_revenue.set_index("Day"),
                     x_label="Date",
@@ -124,6 +134,7 @@ def plot():
                     use_container_width=True,
                     color="#3c00ff"
                     )
+            #-----Multi-Month Comparison-----
             with st.container(key = "multiselect"):
                 selected_multiple_months = st.multiselect(
                     label="Compare multiple months' sales",
@@ -132,8 +143,8 @@ def plot():
                     help = "Select one or more months to compare their sales side by side. The bar chart will display revenue for each selected month, aligned by day, even if some days are missing in certain months."
                 )
             # --- Prepare pivoted data for bar chart ---
-            df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
-            df['Day'] = df["InvoiceDate"].dt.day
+            df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])  # Ensure InvoiceDate is datetime
+            df['Day'] = df["InvoiceDate"].dt.day  # Extract day of month
             # Filter data by selected year
             df_year = df[df['Year'] == int(select_year)]
             if selected_multiple_months:
