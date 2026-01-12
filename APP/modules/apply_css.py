@@ -82,9 +82,10 @@ def apply_css():
                 position: relative;
                 bottom: 160px;
             }
-            .stVerticalBlock.st-key-top10BestSellingProducts.st-emotion-cache-gsx7k2.eertqu03{
+            div[data-testid = "StContainer][key="top10BestSellingProducts"]{
                 position: relative;
                 bottom: 50px;
+                border: 2px solid cyan;
             }
 
         </style>''',unsafe_allow_html=True)
