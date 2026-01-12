@@ -39,6 +39,7 @@ def plot():
                 horizontal=True,
                 height=155
                 )
+    with st.container(key = "vertical_bar"):
         with col2:
             st.text("Top 10 countries by revenue")  # Title for second column chart
             st.bar_chart(
