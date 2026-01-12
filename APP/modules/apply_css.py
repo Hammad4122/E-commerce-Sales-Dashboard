@@ -59,6 +59,7 @@ def apply_css():
                 bottom: 225px;
                 width: 550px;
                 border: 2px solid cyan;
+                font-weight: bold;
             }
             .st-key-Monthly_Sales_Graph{
                 position: relative;
@@ -75,7 +76,6 @@ def apply_css():
             .st-key-top10BestSellingProducts{
                 position: relative;
                 bottom: 180px;
-                font-weight: bold;
             }
 
         </style>''',unsafe_allow_html=True)
