@@ -74,7 +74,7 @@ def apply_css():
             }
             .st-key-top10BestSellingProducts{
                 position: relative;
-                bottom: 150px;
+                bottom: 180px;
             }
 
         </style>''',unsafe_allow_html=True)
