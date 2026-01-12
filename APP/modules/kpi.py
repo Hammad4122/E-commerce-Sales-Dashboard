@@ -3,25 +3,23 @@ import pandas as pd
 import streamlit as st
 from modules.read_csv import read_csv
 
-#-----Collecting Data-----
-df = read_csv()
-#-----Calculating Metrics-----
-#-----Calculating Total Revenue-----
-total_revenue = str(round((df["Revenue"].sum())/1000000,2))
-#-----Best Selling Product-----
-grouped_description_revenue_sum = df.groupby("Description")["Revenue"].sum().reset_index("Description")
-best_selling_product = str(grouped_description_revenue_sum.loc[grouped_description_revenue_sum["Revenue"].idxmax(),"Description"]).capitalize()
-#-----Country with Highest Sales-----
-grouped_country_by_revenue_sum = df.groupby("Country")["Revenue"].sum().reset_index("Country")
-Country_with_Highest_Sales = str(grouped_country_by_revenue_sum.loc[grouped_country_by_revenue_sum["Revenue"].idxmax(),"Country"])
-
-#-----Average revenue per customer-----
-average_revenue_per_customer = str(round(df["Revenue"].sum()/df["InvoiceNo"].nunique(),2))
-#-----Repeat Purchase Rate-----
-repeat_purchase_rate = str(round((df.groupby("CustomerID")["InvoiceNo"].nunique() > 1).sum() / df["CustomerID"].nunique() * 100,2))
-
-
 def KPI():
+    #-----Collecting Data-----
+    df = read_csv()
+    #-----Calculating Metrics-----
+    #-----Calculating Total Revenue-----
+    total_revenue = str(round((df["Revenue"].sum())/1000000,2))
+    #-----Best Selling Product-----
+    grouped_description_revenue_sum = df.groupby("Description")["Revenue"].sum().reset_index("Description")
+    best_selling_product = str(grouped_description_revenue_sum.loc[grouped_description_revenue_sum["Revenue"].idxmax(),"Description"]).capitalize()
+    #-----Country with Highest Sales-----
+    grouped_country_by_revenue_sum = df.groupby("Country")["Revenue"].sum().reset_index("Country")
+    Country_with_Highest_Sales = str(grouped_country_by_revenue_sum.loc[grouped_country_by_revenue_sum["Revenue"].idxmax(),"Country"])
+
+    #-----Average revenue per customer-----
+    average_revenue_per_customer = str(round(df["Revenue"].sum()/df["InvoiceNo"].nunique(),2))
+    #-----Repeat Purchase Rate-----
+    repeat_purchase_rate = str(round((df.groupby("CustomerID")["InvoiceNo"].nunique() > 1).sum() / df["CustomerID"].nunique() * 100,2))
     st.title("Metrics")
     st.markdown('''
         <style>

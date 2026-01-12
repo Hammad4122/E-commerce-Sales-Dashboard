@@ -3,26 +3,26 @@ import pandas as pd
 import streamlit as st
 from modules.read_csv import read_csv  # Custom function to read CSV data
 
-#-----Collecting Data-----
-df = read_csv()  # Load the dataset into a DataFrame
-
-#-----Analysing Data for Visualization-----
-
-#-----Grouping Year by Revenue.sum()-----
-grouped_Year_by_Revenue = df.groupby("Year")["Revenue"].sum().reset_index("Year")  # Total revenue per year
-
-#-----Top 10 countries by revenue-----
-top10_countries_by_revenue = df.groupby("Country")["Revenue"].sum().reset_index().nlargest(10,"Revenue")  # Top 10 countries by revenue
-top10_countries_by_sum= df.groupby("Country")["Revenue"].sum().reset_index().nlargest(5,"Revenue")  # Top 5 countries by revenue (for other uses)
-
-#-----Customer Spending Comparison-----
-top3_customers = df.groupby("CustomerID")["Revenue"].sum().reset_index().nlargest(3,"Revenue")  # Top 3 customers by total spend
-
-#-----Top 10 Products-----
-top10_products_by_revenue = df.groupby("Description")["Revenue"].sum().reset_index().nlargest(10,"Revenue")  # Top 10 products by revenue
-
 #-----Function to plot all visualizations-----
 def plot():
+    #-----Collecting Data-----
+    df = read_csv()  # Load the dataset into a DataFrame
+
+    #-----Analysing Data for Visualization-----
+
+    #-----Grouping Year by Revenue.sum()-----
+    grouped_Year_by_Revenue = df.groupby("Year")["Revenue"].sum().reset_index("Year")  # Total revenue per year
+
+    #-----Top 10 countries by revenue-----
+    top10_countries_by_revenue = df.groupby("Country")["Revenue"].sum().reset_index().nlargest(10,"Revenue")  # Top 10 countries by revenue
+    top10_countries_by_sum= df.groupby("Country")["Revenue"].sum().reset_index().nlargest(5,"Revenue")  # Top 5 countries by revenue (for other uses)
+
+    #-----Customer Spending Comparison-----
+    top3_customers = df.groupby("CustomerID")["Revenue"].sum().reset_index().nlargest(3,"Revenue")  # Top 3 customers by total spend
+
+    #-----Top 10 Products-----
+    top10_products_by_revenue = df.groupby("Description")["Revenue"].sum().reset_index().nlargest(10,"Revenue")  # Top 10 products by revenue
+
     #-----Total Revenue in 2010 and 2011 and Sales in each country with st.columns(2)-----
     col1,col2 = st.columns(2)  # Create two columns for side-by-side charts
     with st.container(key = "side_by_side_chart"):
