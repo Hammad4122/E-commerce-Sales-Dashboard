@@ -82,7 +82,7 @@ def apply_css():
                 position: relative;
                 bottom: 160px;
             }
-            div[data-testid = "StContainer][key="top10BestSellingProducts"]{
+            .st-key-top10BestSellingProducts{
                 position: relative;
                 bottom: 50px;
                 border: 2px solid cyan;
