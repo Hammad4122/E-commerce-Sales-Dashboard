@@ -67,7 +67,7 @@ def apply_css():
             }
             .st-key-TOP3CUSTOMERS{
                 position: relative;
-                bottom: 245px;
+                bottom: 225px;
                 width: 550px;
                 border: 2px solid cyan;
             }
