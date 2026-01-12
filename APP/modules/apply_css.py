@@ -44,11 +44,11 @@ def apply_css():
                     transform: translateY(0);
                 }
             }
-            .st-key-side_by_side_chart{
-                height:210px;
-                font-weight: bold;
-                border: 2px solid cyan;
-            }
+            # .st-key-side_by_side_chart{
+            #     height:210px;
+            #     font-weight: bold;
+            #     border: 2px solid cyan;
+            # }
             .stSelectbox{
                 position: relative;
                 bottom: 120px;
@@ -58,8 +58,6 @@ def apply_css():
                 position: relative;
                 bottom: 225px;
                 width: 550px;
-                border: 2px solid cyan;
-                font-weight: bold;
             }
             .st-key-Monthly_Sales_Graph{
                 position: relative;
