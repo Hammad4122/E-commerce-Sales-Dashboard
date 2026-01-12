@@ -3,7 +3,7 @@ def apply_css():
     st.markdown(
         '''<style>
             div.block-container{
-                padding-top:10px;
+                padding-top:0px;
                 transition:0.5s;
 
             }
