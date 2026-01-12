@@ -59,6 +59,7 @@ def apply_css():
             .st-key-side-by-side-chart{
                 height:210px;
                 font-weight: bold;
+                border: 2px solid cyan;
             }
             .stSelectbox{
                 position: relative;
