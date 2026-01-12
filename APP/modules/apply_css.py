@@ -75,6 +75,7 @@ def apply_css():
             .st-key-top10BestSellingProducts{
                 position: relative;
                 bottom: 180px;
+                font-weight: bold;
             }
 
         </style>''',unsafe_allow_html=True)
