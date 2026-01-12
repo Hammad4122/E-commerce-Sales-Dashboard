@@ -18,7 +18,7 @@ def apply_css():
                 font-family: sans-serif,"Times New Roman", Times, serif;
                 text-align: center;
             }
-            .st-metrics-cards{
+            .st-key-metrics-cards{
                 border: 2px solid #1216c7 !important;
                 border-radius: 10px;
                 padding:5px;
@@ -27,7 +27,7 @@ def apply_css():
                 transition: 0.5s;
                 # background: #f6fcf5;
             }
-            .st-metrics-cards:hover {
+            .st-key-metrics-cards:hover {
                 transform: translateY(-3px);
             }
             # .stColumn.st-emotion-cache-1o3yd6l.eertqu01{
@@ -56,7 +56,7 @@ def apply_css():
                     transform: translateY(0);
                 }
             }
-            .st-side-by-side-chart{
+            .st-key-side-by-side-chart{
                 height:210px;
                 font-weight: bold;
             }
