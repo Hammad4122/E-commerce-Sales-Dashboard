@@ -30,18 +30,6 @@ def apply_css():
             .st-key-metrics-cards [data-testid="stMetric"]:hover {
                 transform: translateY(-3px);
             }
-            # .stColumn.st-emotion-cache-1o3yd6l.eertqu01{
-            #     border: 2px solid #1216c7 !important;
-            #     border-radius: 10px;
-            #     padding:5px;
-            #     padding-left: 15px;
-            #     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            #     transition: 0.5s;
-            #     # background: #f6fcf5;
-            # }
-            # .stColumn.st-emotion-cache-1o3yd6l.eertqu01:hover {
-            #     transform: translateY(-3px);
-            # }
 
             /* Animate whole Streamlit app on page load */
             [data-testid="stAppViewContainer"] {
@@ -86,7 +74,7 @@ def apply_css():
             }
             .st-key-top10BestSellingProducts{
                 position: relative;
-                bottom: 50px;
+                bottom: 150px;
             }
 
         </style>''',unsafe_allow_html=True)
