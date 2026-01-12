@@ -51,7 +51,7 @@ def apply_css():
             }
             .stSelectbox{
                 position: relative;
-                bottom: 90px;
+                bottom: 120px;
                 width: 550px;
             }
             .st-key-TOP3CUSTOMERS{
