@@ -18,7 +18,7 @@ def apply_css():
                 font-family: sans-serif,"Times New Roman", Times, serif;
                 text-align: center;
             }
-            .st-key-metrics-cards{
+            .st-key-metrics-cards [data-testid="stMetric"]{
                 border: 2px solid #1216c7 !important;
                 border-radius: 10px;
                 padding:5px;
@@ -27,7 +27,7 @@ def apply_css():
                 transition: 0.5s;
                 # background: #f6fcf5;
             }
-            .st-key-metrics-cards:hover {
+            .st-key-metrics-cards [data-testid="stMetric"]:hover {
                 transform: translateY(-3px);
             }
             # .stColumn.st-emotion-cache-1o3yd6l.eertqu01{
