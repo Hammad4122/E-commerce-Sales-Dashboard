@@ -56,7 +56,7 @@ def apply_css():
                     transform: translateY(0);
                 }
             }
-            .st-key-side-by-side-chart{
+            .st-key-side_by_side_chart{
                 height:210px;
                 font-weight: bold;
                 border: 2px solid cyan;

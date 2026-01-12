@@ -25,7 +25,7 @@ top10_products_by_revenue = df.groupby("Description")["Revenue"].sum().reset_ind
 def plot():
     #-----Total Revenue in 2010 and 2011 and Sales in each country with st.columns(2)-----
     col1,col2 = st.columns(2)  # Create two columns for side-by-side charts
-    with st.container(key = "side-by-side-chart"):
+    with st.container(key = "side_by_side_chart"):
         with col1:
             st.text("Revenue Generated in 2010 and 2011")  # Title for first column chart
             st.bar_chart(
