@@ -69,6 +69,7 @@ def apply_css():
                 position: relative;
                 bottom: 45px;
                 width: 550px;
+                border: 2px solid cyan;
             }
             .st-key-Monthly_Sales_Graph{
                 position: relative;
