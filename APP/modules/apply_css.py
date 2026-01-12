@@ -18,7 +18,7 @@ def apply_css():
                 font-family: sans-serif,"Times New Roman", Times, serif;
                 text-align: center;
             }
-            .stColumn.st-emotion-cache-3u1gzc.eertqu01{
+            .st-metrics-cards{
                 border: 2px solid #1216c7 !important;
                 border-radius: 10px;
                 padding:5px;
@@ -27,21 +27,21 @@ def apply_css():
                 transition: 0.5s;
                 # background: #f6fcf5;
             }
-            .stColumn.st-emotion-cache-3u1gzc.eertqu01:hover {
+            .st-metrics-cards:hover {
                 transform: translateY(-3px);
             }
-            .stColumn.st-emotion-cache-1o3yd6l.eertqu01{
-                border: 2px solid #1216c7 !important;
-                border-radius: 10px;
-                padding:5px;
-                padding-left: 15px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-                transition: 0.5s;
-                # background: #f6fcf5;
-            }
-            .stColumn.st-emotion-cache-1o3yd6l.eertqu01:hover {
-                transform: translateY(-3px);
-            }
+            # .stColumn.st-emotion-cache-1o3yd6l.eertqu01{
+            #     border: 2px solid #1216c7 !important;
+            #     border-radius: 10px;
+            #     padding:5px;
+            #     padding-left: 15px;
+            #     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            #     transition: 0.5s;
+            #     # background: #f6fcf5;
+            # }
+            # .stColumn.st-emotion-cache-1o3yd6l.eertqu01:hover {
+            #     transform: translateY(-3px);
+            # }
 
             /* Animate whole Streamlit app on page load */
             [data-testid="stAppViewContainer"] {
@@ -56,7 +56,7 @@ def apply_css():
                     transform: translateY(0);
                 }
             }
-            .stColumn.st-emotion-cache-ss04kk.eertqu01{
+            .st-side-by-side-chart{
                 height:210px;
                 font-weight: bold;
             }
@@ -65,27 +65,26 @@ def apply_css():
                 bottom: 40px;
                 width: 550px;
             }
-            .stVerticalBlock.st-key-TOP3CUSTOMERS.st-emotion-cache-gsx7k2.eertqu03{
+            .st-key-TOP3CUSTOMERS{
                 position: relative;
                 bottom: 45px;
                 width: 550px;
             }
-            .stVerticalBlock.st-key-Monthly_Sales_Graph.st-emotion-cache-gsx7k2.eertqu03{
+            .st-key-Monthly_Sales_Graph{
                 position: relative;
                 bottom: 140px;
             }
-            .stVerticalBlock.st-key-multiselect.st-emotion-cache-gsx7k2.eertqu03{
+            .st-key-multiselect{
                 position: relative;
                 bottom: 160px;
             }
-            .stVerticalBlock.st-key-CompareMonths.st-emotion-cache-gsx7k2.eertqu03{
+            .st-key-CompareMonths{
                 position: relative;
                 bottom: 160px;
             }
             .st-key-top10BestSellingProducts{
                 position: relative;
                 bottom: 50px;
-                border: 2px solid cyan;
             }
 
         </style>''',unsafe_allow_html=True)

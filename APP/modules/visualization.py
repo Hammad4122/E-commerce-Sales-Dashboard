@@ -25,30 +25,31 @@ top10_products_by_revenue = df.groupby("Description")["Revenue"].sum().reset_ind
 def plot():
     #-----Total Revenue in 2010 and 2011 and Sales in each country with st.columns(2)-----
     col1,col2 = st.columns(2)  # Create two columns for side-by-side charts
-    with col1:
-        st.text("Revenue Generated in 2010 and 2011")  # Title for first column chart
-        st.bar_chart(
-            data=grouped_Year_by_Revenue,
-            x = "Year",
-            y="Revenue",
-            x_label="Total Revenue",
-            y_label="Year",
-            use_container_width=True,
-            color="#f6ec61f0",
-            horizontal=True,
-            height=155
+    with st.container(key = "side-by-side-chart"):
+        with col1:
+            st.text("Revenue Generated in 2010 and 2011")  # Title for first column chart
+            st.bar_chart(
+                data=grouped_Year_by_Revenue,
+                x = "Year",
+                y="Revenue",
+                x_label="Total Revenue",
+                y_label="Year",
+                use_container_width=True,
+                color="#f6ec61f0",
+                horizontal=True,
+                height=155
+                )
+        with col2:
+            st.text("Top 10 countries by revenue")  # Title for second column chart
+            st.bar_chart(
+                data = top10_countries_by_revenue,
+                x = "Country",
+                y = "Revenue",
+                x_label = "Country",
+                y_label = "Revenue",
+                use_container_width=True,
+                color = "#6555fae9"
             )
-    with col2:
-        st.text("Top 10 countries by revenue")  # Title for second column chart
-        st.bar_chart(
-            data = top10_countries_by_revenue,
-            x = "Country",
-            y = "Revenue",
-            x_label = "Country",
-            y_label = "Revenue",
-            use_container_width=True,
-            color = "#6555fae9"
-        )
     #-----Top 3 Customers-----
     with st.container(key = "TOP3CUSTOMERS"):
         st.write("Top 3 Customers")  # Section title
