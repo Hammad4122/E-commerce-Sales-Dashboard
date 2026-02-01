@@ -4,7 +4,7 @@ def apply_css():
         '''<style>
             div.block-container{
                 padding-top:30px;
-                transition:0.9s;
+                transition:0.5s;
 
             }
             #e-commerce-sales-dashboard{
